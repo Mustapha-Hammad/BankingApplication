@@ -1,0 +1,14 @@
+C:\Users\hp\source\repos\BankApplicationAhmed\bin\Debug\netcoreapp3.1\BankApplicationAhmed.exe
+C:\Users\hp\source\repos\BankApplicationAhmed\bin\Debug\netcoreapp3.1\BankApplicationAhmed.deps.json
+C:\Users\hp\source\repos\BankApplicationAhmed\bin\Debug\netcoreapp3.1\BankApplicationAhmed.runtimeconfig.json
+C:\Users\hp\source\repos\BankApplicationAhmed\bin\Debug\netcoreapp3.1\BankApplicationAhmed.runtimeconfig.dev.json
+C:\Users\hp\source\repos\BankApplicationAhmed\bin\Debug\netcoreapp3.1\BankApplicationAhmed.dll
+C:\Users\hp\source\repos\BankApplicationAhmed\bin\Debug\netcoreapp3.1\BankApplicationAhmed.pdb
+C:\Users\hp\source\repos\BankApplicationAhmed\obj\Debug\netcoreapp3.1\BankApplicationAhmed.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\BankApplicationAhmed\obj\Debug\netcoreapp3.1\BankApplicationAhmed.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\BankApplicationAhmed\obj\Debug\netcoreapp3.1\BankApplicationAhmed.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\BankApplicationAhmed\obj\Debug\netcoreapp3.1\BankApplicationAhmed.AssemblyInfo.cs
+C:\Users\hp\source\repos\BankApplicationAhmed\obj\Debug\netcoreapp3.1\BankApplicationAhmed.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\BankApplicationAhmed\obj\Debug\netcoreapp3.1\BankApplicationAhmed.dll
+C:\Users\hp\source\repos\BankApplicationAhmed\obj\Debug\netcoreapp3.1\BankApplicationAhmed.pdb
+C:\Users\hp\source\repos\BankApplicationAhmed\obj\Debug\netcoreapp3.1\BankApplicationAhmed.genruntimeconfig.cache
