@@ -1,7 +1,11 @@
-﻿using BankApplicationAhmed.Models;
+﻿using BankApplicationAhmed.Dto;
+using BankApplicationAhmed.Models;
 using BankApplicationAhmed.Services;
+using BankApplicationAhmed.UI;
 using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Threading;
 
 namespace BankApplicationAhmed
 {
@@ -9,67 +13,80 @@ namespace BankApplicationAhmed
     {
         static void Main(string[] args)
         {
-
-
-            Console.WriteLine("Welcome to soo so Bank \n \n \n What would you like to do \n\n\n To Register press 1 \n To log in press 2");
-
-
-
-
-
+            var uI = new UserInterface();
+            var uIInputs = new HandleUserInput();
             var customerService = new CustomerService();
-            var customers = new List<Customer>
+
+            var stringBuilder = new StringBuilder();
+
+            bool initialState = false;
+
+            var userInput = string.Empty;
+            while(!initialState)
             {
-                new Customer
+                Thread.Sleep(500);
+                stringBuilder.Append(uI.WelcomeMessage());
+                stringBuilder.Append(uI.WhatWouldYouLikeToDoToday());
+                stringBuilder.Append(uI.WelcomeOptions());
+
+                Console.WriteLine(stringBuilder.ToString());
+                var welcomeOption = Console.ReadLine();
+                initialState = uIInputs.ValidateWelcomeOptions(welcomeOption);
+
+                Console.WriteLine(uI.YouEnteredWrongInput());
+                userInput = welcomeOption;
+            }
+
+            if(userInput == "1") /// For user registration
+            {
+                var customer = new Customer();
+                Console.WriteLine("Enter your firstName");
+                customer.FirstName = Console.ReadLine();
+                Console.WriteLine("Enter your LastName");
+                customer.LastName = Console.ReadLine();
+
+                Console.WriteLine("Enter your Address");
+                customer.Address = Console.ReadLine();
+
+                Console.WriteLine("Enter your Email");
+                customer.Email = Console.ReadLine();
+
+                Console.WriteLine("Enter your Age");
+                customer.Age = Convert.ToInt32(Console.ReadLine()) ;
+
+                Console.WriteLine("Enter your Phone Number");
+                customer.PhoneNumber = Console.ReadLine();
+
+                Console.WriteLine("Enter your Password");
+                customer.Password = Console.ReadLine();
+
+                var registerService = customerService.Register(customer);
+                if (registerService)
+                    Console.WriteLine("Registration successful");
+
+
+            }
+            else // For user Log in
+            {
+                var logInDto = new LoginRequestDto();
+                Console.WriteLine("Enter your Email");
+                logInDto.Email = Console.ReadLine();
+
+                Console.WriteLine("Enter your Password");
+                logInDto.Password = Console.ReadLine();
+
+                var logIn = customerService.LogIn(logInDto);
+
+                if (logIn)
                 {
-                    FirstName = "Ahmed",
-                    LastName = "Bolu",
-                    Address = "Gaa Saka Oke fomo",
-                    Age = 25,
-                    Email = "HammedMustapha@gmail.com",
-                    Password = "Password1",
-                    PhoneNumber = "0884934873847"
-                },
-             new Customer
-            {
-                FirstName = "Ahmed",
-                LastName = "Bolu",
-                Address = "Gaa Saka Oke fomo",
-                Age = 25,
-                Email = "aMustapha@gmail.com",
-                Password = "Password1",
-                PhoneNumber = "0884934873847"
-            },
+                    Console.WriteLine("Log in was successful");
+                }
+                else
+                {
+                    Console.WriteLine("Log in was not succesful");
+                }
 
-            new Customer
-            {
-                FirstName = "Ahmed",
-                LastName = "Bolu",
-                Address = "Gaa Saka Oke fomo",
-                Age = 25,
-                Email = "HammedMtapha@gmail.com",
-                Password = "Password1",
-                PhoneNumber = "0884934873847"
             }
-            };
-
-
-
-            foreach (var customer in customers)
-            {
-
-                customerService.Register(customer);
-
-            };
-
-
-            var result = customerService.GetCustomers();
-
-            foreach (var item in result)
-            {
-                Console.WriteLine($"Name {item.FirstName} {item.LastName}  ,  Age: {item.Age} , Email {item.Email}");
-            }
-
 
         }
     }

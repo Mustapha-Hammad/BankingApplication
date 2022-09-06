@@ -1,4 +1,5 @@
 ﻿using BankApplicationAhmed.Data;
+using BankApplicationAhmed.Dto;
 using BankApplicationAhmed.Models;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,7 @@ namespace BankApplicationAhmed.Services
             var result = bankData.LogIn(logInRequest);
             return result;
         }
-        public bool LogIn()
-        {
-            return false;
-        }
+       
 
         public List<Customer> GetCustomers()
         {
@@ -34,9 +32,5 @@ namespace BankApplicationAhmed.Services
         }
     }
 
-    public class LoginRequestDto
-    {
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
+    
 }
